@@ -13,8 +13,11 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Automex",
-  description: "Automex",
+  title: "Automex | Premium WhatsApp & RCS Solutions",
+  description: "Automex provides Meta-certified WhatsApp Business API and RCS Messaging services for high-engagement customer communication.",
+  icons: {
+    icon: "/favicon_automex.jpg",
+  },
 };
 
 export default function RootLayout({
