@@ -7,7 +7,7 @@ import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen bg-[#050505] text-white selection:bg-[#0757C8] selection:text-white">
       <Header />
       <WhatsAppHero />
       <WhatsAppFeatures />
