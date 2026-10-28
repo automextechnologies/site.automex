@@ -44,7 +44,7 @@ export default function ContactForm() {
       await fetch(scriptUrl, {
         method: "POST",
         body: formData,
-        mode: "no-cors" // Standard for Google Script submissions
+        mode: "no-cors"
       });
       setStatus("success");
       form.reset();
@@ -55,64 +55,78 @@ export default function ContactForm() {
   };
 
   return (
-    <section id="contact" className="bg-[#050505] py-20 sm:py-28 relative overflow-hidden border-t border-white/[0.06]">
-      {/* Background radial glow */}
-      <div className="absolute top-1/2 left-1/4 w-80 h-80 sm:w-96 sm:h-96 blue-flare blur-3xl pointer-events-none opacity-25"></div>
-
-      <div className="container relative mx-auto px-4 sm:px-6 lg:px-12">
+    <section id="contact" className="py-20 sm:py-28 relative overflow-hidden">
+      <div className="container relative mx-auto px-4 sm:px-6 lg:px-12 z-10">
         <div className="flex flex-col gap-12 sm:gap-16 lg:flex-row">
           
           {/* Left Column: Contact Information */}
           <div className="flex-1 space-y-8 sm:space-y-12 text-center lg:text-left">
             <div>
+              <div className="inline-flex items-center gap-2 rounded-full border border-[#00D2FF]/30 bg-[#00D2FF]/10 px-3.5 py-1 text-xs font-bold text-[#00D2FF] mb-4">
+                <span>CONNECT WITH OUR TEAM</span>
+              </div>
               <h2 className="text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-white leading-[1.12]">
-                Let's Build Something <br />
-                <span className="text-gradient-cobalt">Extraordinary</span>
+                Scale Your Business <br />
+                <span className="text-laser-gradient">On WhatsApp</span>
               </h2>
               <p className="mt-4 sm:mt-6 text-base sm:text-lg text-[#94A3B8] leading-relaxed max-w-xl mx-auto lg:mx-0">
-                Ready to transform your customer engagement? Reach out to our team of experts today.
+                Ready to transform your customer engagement? Talk directly to our technical implementation team today.
               </p>
             </div>
 
             {/* Contact Details Cards */}
             <div className="space-y-4 max-w-md mx-auto lg:mx-0 text-left">
-              <a
-                href="tel:+918848927464"
-                className="flex items-center gap-4 rounded-2xl border border-white/10 bg-[#1A1F2B]/80 p-4 transition-all hover:border-[#0757C8]/50 hover:bg-[#1A1F2B] group"
-              >
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#050505] text-[#38bdf8] border border-white/10 group-hover:bg-[#0757C8] group-hover:text-white transition-all">
-                  <PhoneIcon />
+              
+              {/* Phone Numbers */}
+              <div className="cyber-panel rounded-2xl p-4">
+                <div className="flex items-start gap-4">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#02040a] text-[#00D2FF] border border-[#00D2FF]/30 shadow-[0_0_15px_rgba(0,210,255,0.2)]">
+                    <PhoneIcon />
+                  </div>
+                  <div className="space-y-1">
+                    <p className="text-xs font-bold text-[#94A3B8] uppercase tracking-wider">Phone Support (Direct)</p>
+                    <div className="flex flex-col sm:flex-row sm:items-center gap-x-3 gap-y-1">
+                      <a href="tel:+918921847262" className="text-sm sm:text-base font-semibold text-white hover:text-[#00D2FF] transition-colors">
+                        +91 8921847262
+                      </a>
+                      <span className="text-zinc-500 hidden sm:inline">|</span>
+                      <a href="tel:+918848927464" className="text-sm sm:text-base font-semibold text-white hover:text-[#00D2FF] transition-colors">
+                        +91 8848927464
+                      </a>
+                    </div>
+                  </div>
                 </div>
-                <div>
-                  <p className="text-xs font-bold text-[#94A3B8] uppercase tracking-wider">Phone</p>
-                  <p className="text-base sm:text-lg font-semibold text-white group-hover:text-[#38bdf8] transition-colors">+91 884 892 7464</p>
-                </div>
-              </a>
+              </div>
 
+              {/* Email */}
               <a
                 href="mailto:connect@automextechnologies.com"
-                className="flex items-center gap-4 rounded-2xl border border-white/10 bg-[#1A1F2B]/80 p-4 transition-all hover:border-[#0757C8]/50 hover:bg-[#1A1F2B] group"
+                className="cyber-panel flex items-center gap-4 rounded-2xl p-4 block"
               >
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#050505] text-[#38bdf8] border border-white/10 group-hover:bg-[#0757C8] group-hover:text-white transition-all">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#02040a] text-[#00D2FF] border border-[#00D2FF]/30 shadow-[0_0_15px_rgba(0,210,255,0.2)]">
                   <MailIcon />
                 </div>
                 <div className="min-w-0">
-                  <p className="text-xs font-bold text-[#94A3B8] uppercase tracking-wider">Email</p>
-                  <p className="text-base sm:text-lg font-semibold text-white group-hover:text-[#38bdf8] transition-colors truncate">connect@automextechnologies.com</p>
+                  <p className="text-xs font-bold text-[#94A3B8] uppercase tracking-wider">Official Email</p>
+                  <p className="text-sm sm:text-base font-semibold text-white hover:text-[#00D2FF] transition-colors truncate">
+                    connect@automextechnologies.com
+                  </p>
                 </div>
               </a>
 
-              <div className="flex items-start gap-4 rounded-2xl border border-white/10 bg-[#1A1F2B]/80 p-4">
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#050505] text-[#38bdf8] border border-white/10">
+              {/* Address */}
+              <div className="cyber-panel flex items-start gap-4 rounded-2xl p-4">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#02040a] text-[#00D2FF] border border-[#00D2FF]/30 shadow-[0_0_15px_rgba(0,210,255,0.2)]">
                   <MapPinIcon />
                 </div>
                 <div>
-                  <p className="text-xs font-bold text-[#94A3B8] uppercase tracking-wider">Address</p>
-                  <p className="text-sm sm:text-base font-semibold text-white leading-snug">
+                  <p className="text-xs font-bold text-[#94A3B8] uppercase tracking-wider">Office Location</p>
+                  <p className="text-xs sm:text-sm font-semibold text-white leading-snug">
                     Omkaar tower, Thali Road, near Mariyamman Kovil, Palayam, Kozhikode, Keralam 673002
                   </p>
                 </div>
               </div>
+
             </div>
           </div>
 
@@ -120,7 +134,7 @@ export default function ContactForm() {
           <div className="flex-1 w-full max-w-xl mx-auto lg:max-w-none">
             <form
               onSubmit={handleSubmit}
-              className="relative rounded-3xl border border-white/10 bg-[#1A1F2B]/90 p-6 sm:p-10 shadow-2xl backdrop-blur-xl"
+              className="cyber-panel rounded-3xl p-6 sm:p-10 shadow-2xl relative"
             >
               <div className="grid gap-5">
                 <div className="grid gap-2 text-left">
@@ -131,44 +145,32 @@ export default function ContactForm() {
                     id="name"
                     name="name"
                     type="text"
-                    placeholder="John Doe"
+                    placeholder="Arun Kumar"
                     required
-                    className="rounded-xl border border-white/10 bg-[#050505] px-4 py-3.5 text-sm sm:text-base text-white placeholder-zinc-500 outline-none focus:border-[#0757C8] focus:ring-1 focus:ring-[#0757C8] transition-all"
+                    className="rounded-xl border border-white/10 bg-[#02040a]/90 px-4 py-3.5 text-sm sm:text-base text-white placeholder-zinc-500 outline-none focus:border-[#00D2FF] focus:ring-1 focus:ring-[#00D2FF] transition-all"
                   />
                 </div>
                 
                 <div className="grid gap-2 text-left">
                   <label htmlFor="phone" className="text-xs font-bold uppercase tracking-wider text-white/90">
-                    Phone Number
+                    Phone Number (WhatsApp)
                   </label>
                   <input
                     id="phone"
                     name="phone"
                     type="tel"
-                    placeholder="+91 000 000 0000"
+                    placeholder="+91 98765 43210"
                     required
-                    className="rounded-xl border border-white/10 bg-[#050505] px-4 py-3.5 text-sm sm:text-base text-white placeholder-zinc-500 outline-none focus:border-[#0757C8] focus:ring-1 focus:ring-[#0757C8] transition-all"
+                    className="rounded-xl border border-white/10 bg-[#02040a]/90 px-4 py-3.5 text-sm sm:text-base text-white placeholder-zinc-500 outline-none focus:border-[#00D2FF] focus:ring-1 focus:ring-[#00D2FF] transition-all"
                   />
-                </div>
-                
-                <div className="grid gap-2 text-left">
-                  <label htmlFor="message" className="text-xs font-bold uppercase tracking-wider text-white/90">
-                    Your Message
-                  </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    rows={4}
-                    placeholder="Tell us about your project..."
-                    required
-                    className="rounded-xl border border-white/10 bg-[#050505] px-4 py-3.5 text-sm sm:text-base text-white placeholder-zinc-500 outline-none focus:border-[#0757C8] focus:ring-1 focus:ring-[#0757C8] transition-all resize-none"
-                  ></textarea>
+                  <input type="hidden" name="interest" value="WhatsApp Business API" />
+                  <input type="hidden" name="message" value="Requested callback via website form" />
                 </div>
                 
                 <button
                   type="submit"
                   disabled={status === "loading"}
-                  className={`btn-primary bg-[#0757C8] hover:bg-[#0c6bf0] text-white w-full py-4 text-base font-bold rounded-xl flex items-center justify-center gap-2 shadow-[0_4px_25px_rgba(7,87,200,0.5)] transition-all ${
+                  className={`btn-laser w-full py-4 text-base font-bold rounded-xl justify-center ${
                     status === "loading" ? "opacity-60 cursor-not-allowed" : ""
                   }`}
                 >
@@ -177,18 +179,18 @@ export default function ContactForm() {
                   ) : (
                     <SendIcon />
                   )}
-                  <span>{status === "loading" ? "Sending..." : "Send Message"}</span>
+                  <span>{status === "loading" ? "Connecting..." : "Schedule Onboarding Call"}</span>
                 </button>
 
                 {status === "success" && (
                   <p className="text-center text-sm font-semibold text-emerald-400">
-                    Message sent successfully! We'll be in touch soon.
+                    Thank you! An AUTOMEX specialist will contact you shortly.
                   </p>
                 )}
 
                 {status === "error" && (
                   <p className="text-center text-sm font-semibold text-red-400">
-                    Something went wrong. Please try again later.
+                    Something went wrong. Please call us directly at +91 8921847262.
                   </p>
                 )}
               </div>

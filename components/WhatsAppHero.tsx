@@ -1,76 +1,133 @@
-import Image from "next/image";
+"use client";
+
 import Link from "next/link";
-import BrandThemeBackground from "./BrandThemeBackground";
 
 export default function WhatsAppHero() {
   return (
     <section
       id="whatsapp"
-      className="relative overflow-hidden bg-[#050505] pt-28 pb-16 sm:pt-36 sm:pb-24 lg:pt-44 lg:pb-32"
+      className="relative overflow-hidden pt-32 pb-16 sm:pt-40 sm:pb-20 lg:pt-48 lg:pb-28"
     >
-      {/* Main Theme Background from Reference Image: Flowing Blue Ribbon Waves & Glow Flare */}
-      <BrandThemeBackground variant="hero" />
-
-      <div className="container relative mx-auto px-4 sm:px-6 lg:px-12">
-        <div className="flex flex-col items-center gap-12 lg:flex-row lg:gap-16">
+      <div className="container relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 z-10">
+        
+        {/* Main 2-Column Hero Grid Matching Telinfy Layout */}
+        <div className="grid lg:grid-cols-12 gap-10 lg:gap-14 items-center">
           
-          {/* Text Column */}
-          <div className="flex-1 space-y-6 sm:space-y-8 text-center lg:text-left z-10">
+          {/* Left Column: Text & CTAs (7 cols on lg) */}
+          <div className="lg:col-span-7 space-y-7 text-center lg:text-left">
             
-            {/* Meta Certified Provider Badge */}
-            <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-[#1A1F2B] px-3.5 py-1.5 text-xs font-bold tracking-wider text-white uppercase shadow-lg">
-              <span className="flex h-2 w-2 rounded-full bg-[#0757C8] pulse-badge"></span>
-              <span>Meta Certified Provider</span>
+            {/* WhatsApp Icon Pill Badge */}
+            <div className="inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-[#061810]/80 px-4 py-1.5 text-xs font-semibold text-emerald-400 shadow-[0_0_15px_rgba(37,211,102,0.2)]">
+              <svg className="w-4 h-4 fill-current text-[#25D366]" viewBox="0 0 24 24">
+                <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766 0-3.187-2.59-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.299.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.086.087-.176.182-.075.355.101.173.45 0.742.965 1.201.662.591 1.221.774 1.394.86.173.086.275.072.376-.044.101-.116.433-.505.549-.679.116-.173.231-.144.39-.087.159.058 1.011.477 1.184.563.173.087.289.13.332.202.043.072.043.419-.101.824z"/>
+              </svg>
+              <span>Official WhatsApp Business API</span>
             </div>
 
-            {/* Main Heading */}
-            <h1 className="text-3xl sm:text-5xl md:text-6xl font-extrabold leading-[1.12] tracking-tight text-white">
-              Unlock the Power of <br />
-              <span className="text-gradient-cobalt">WhatsApp Business API</span>
+            {/* Exact Telinfy Headline with Laser Accent */}
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-[1.12]">
+              AI-driven WhatsApp marketing &amp; automation on the <br className="hidden sm:block" />
+              <span className="text-laser-gradient">official Business API</span>
             </h1>
 
-            {/* Description */}
-            <p className="mx-auto max-w-xl text-base sm:text-lg leading-relaxed text-[#94A3B8] lg:mx-0">
-              Scale your business with Meta-certified WhatsApp API. Automate conversations, broadcast to unlimited users.
+            {/* Exact Telinfy Description */}
+            <p className="mx-auto max-w-xl text-base sm:text-lg text-[#94A3B8] leading-relaxed lg:mx-0">
+              Run marketing campaigns, broadcasts and automated messages on the channel your customers actually open. The official WhatsApp Business API with AI chatbots, a shared team inbox, rich templates and analytics.
             </p>
 
-            {/* CTA Button */}
+            {/* Exact Telinfy CTA Buttons */}
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
               <Link
                 href="#contact"
-                className="btn-primary bg-[#0757C8] hover:bg-[#0c6bf0] text-white font-bold px-8 py-4 rounded-xl shadow-[0_4px_25px_rgba(7,87,200,0.5)] hover:shadow-[0_8px_35px_rgba(7,87,200,0.8)] transition-all duration-300 flex items-center justify-center gap-2.5 group w-full sm:w-auto text-base"
+                className="btn-laser w-full sm:w-auto text-sm sm:text-base"
               >
-                <span>Contact Us</span>
-                <svg
-                  className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
+                <span>Book a Meeting</span>
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                 </svg>
               </Link>
+
+              <a
+                href="https://wa.me/918921847262?text=Hi%2C%20I%20would%20like%20to%20know%20more"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-ghost-cyber w-full sm:w-auto text-sm sm:text-base"
+              >
+                <svg className="w-4 h-4 fill-current text-[#25D366]" viewBox="0 0 24 24">
+                  <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766 0-3.187-2.59-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.299.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.086.087-.176.182-.075.355.101.173.45 0.742.965 1.201.662.591 1.221.774 1.394.86.173.086.275.072.376-.044.101-.116.433-.505.549-.679.116-.173.231-.144.39-.087.159.058 1.011.477 1.184.563.173.087.289.13.332.202.043.072.043.419-.101.824z"/>
+                </svg>
+                <span>Chat on WhatsApp</span>
+              </a>
             </div>
+
           </div>
 
-          {/* Phone Only (No Image BG, No Container Box) */}
-          <div className="relative flex-1 w-full flex items-center justify-center z-10">
-            {/* Soft radiant ambient glow underneath the phone */}
-            <div className="absolute w-72 h-72 sm:w-96 sm:h-96 rounded-full bg-[#0757C8]/30 blur-[100px] pointer-events-none"></div>
+          {/* Right Column: High-Fidelity Phone Showcase (5 cols on lg) */}
+          <div className="lg:col-span-5 relative flex justify-center">
+            
+            {/* Cyber Phone Mockup */}
+            <div className="relative w-full max-w-[340px] sm:max-w-[370px] rounded-[40px] border-2 border-white/15 bg-[#050914] p-3.5 shadow-[0_0_50px_rgba(0,102,255,0.25)] backdrop-blur-2xl">
+              
+              {/* Phone Inner Screen */}
+              <div className="overflow-hidden rounded-[32px] border border-white/10 bg-[#0b141a]">
+                
+                {/* WhatsApp Chat Top Header */}
+                <div className="flex items-center justify-between border-b border-white/10 bg-[#1f2c34] px-4 py-3">
+                  <div className="flex items-center gap-3">
+                    <div className="relative flex h-10 w-10 items-center justify-center rounded-full bg-[#00D2FF]/20 text-white font-bold border border-[#00D2FF]/40 text-xs">
+                      <span>AM</span>
+                      <span className="absolute bottom-0 right-0 h-3 w-3 rounded-full bg-emerald-500 border-2 border-[#1f2c34]"></span>
+                    </div>
+                    <div>
+                      <div className="flex items-center gap-1.5 font-bold text-white text-xs">
+                        <span>Automex Official</span>
+                        <svg className="w-3.5 h-3.5 text-[#00D2FF]" viewBox="0 0 24 24" fill="currentColor">
+                          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                        </svg>
+                      </div>
+                      <div className="text-[10px] text-emerald-400">Official Business Account</div>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-3 text-zinc-400 text-xs">
+                    <span>📞</span>
+                    <span>⋮</span>
+                  </div>
+                </div>
 
-            <div className="relative transition-transform duration-700 hover:scale-[1.03]">
-              <Image
-                src="/whatsapp_dark_phone_only.png"
-                alt="WhatsApp Business API Phone Mockup"
-                width={700}
-                height={850}
-                priority
-                className="w-full max-w-[320px] sm:max-w-[420px] lg:max-w-[480px] h-auto object-contain drop-shadow-[0_25px_45px_rgba(0,0,0,0.95)] drop-shadow-[0_0_60px_rgba(7,87,200,0.35)]"
-              />
+                {/* Message Stream */}
+                <div className="p-4 space-y-3 bg-[#0b141a] text-xs">
+                  
+                  {/* Order notification */}
+                  <div className="self-start max-w-[90%] rounded-2xl rounded-tl-sm bg-[#1f2c34] p-3 text-white shadow-md border border-white/5 space-y-1">
+                    <div className="text-[10px] text-[#00D2FF] font-bold uppercase tracking-wider">Order Dispatched</div>
+                    <p className="font-bold text-white text-xs">Your order #2847 is on its way 📦</p>
+                    <p className="text-[11px] text-zinc-300">Arriving Thursday · ShopMart</p>
+                    <div className="text-[9px] text-right text-zinc-400">10:30 AM</div>
+                  </div>
+
+                  {/* Customer Reply */}
+                  <div className="self-end ml-auto max-w-[80%] rounded-2xl rounded-tr-sm bg-[#005c4b] p-2.5 text-white shadow-md text-right">
+                    <p className="text-xs">Perfect, thanks! 🙌</p>
+                    <div className="text-[9px] text-emerald-200 mt-0.5">10:31 AM ✓✓</div>
+                  </div>
+
+                  {/* Abandoned Cart Quick recovery card */}
+                  <div className="self-start max-w-[92%] rounded-2xl bg-[#1f2c34] p-3 text-white border border-white/5 space-y-2">
+                    <p className="text-[11px] text-zinc-200">Flash Sale Alert: 25% off unlocked for your cart!</p>
+                    <div className="py-2 px-3 rounded-lg bg-[#0066FF]/20 text-[#00D2FF] font-bold text-center border border-[#00D2FF]/30 text-[11px]">
+                      Claim Discount &amp; Check Out →
+                    </div>
+                  </div>
+
+                </div>
+
+              </div>
+
             </div>
           </div>
 
         </div>
+
       </div>
     </section>
   );

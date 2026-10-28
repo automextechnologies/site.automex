@@ -1,170 +1,166 @@
 @import "tailwindcss";
 
 :root {
-  --background: #050505;
+  --background: #02040a;
   --foreground: #ffffff;
-  --brand-primary: #0757C8;
-  --brand-accent: #0757C8;
-  --brand-accent-hover: #0c6bf0;
-  --brand-slate: #1A1F2B;
-  --brand-slate-border: rgba(255, 255, 255, 0.08);
-  --brand-muted: #94A3B8;
-  --brand-white: #FFFFFF;
+  --neon-blue: #00D2FF;
+  --laser-blue: #0066FF;
+  --electric-cyan: #38bdf8;
+  --deep-navy: #050914;
+  --cyber-panel: rgba(5, 9, 20, 0.78);
+  --cyber-border: rgba(255, 255, 255, 0.1);
+  --cyber-border-glow: rgba(0, 210, 255, 0.5);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --color-brand-bg: #050505;
-  --color-brand-primary: #0757C8;
-  --color-brand-accent: #0757C8;
-  --color-brand-accent-hover: #0c6bf0;
-  --color-brand-slate: #1A1F2B;
-  --color-brand-muted: #94A3B8;
-  --color-brand-white: #FFFFFF;
+  --color-neon-blue: var(--neon-blue);
+  --color-laser-blue: var(--laser-blue);
+  --color-electric-cyan: var(--electric-cyan);
   --font-sans: var(--font-inter), system-ui, -apple-system, sans-serif;
 }
 
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 90px;
-  background-color: #050505;
+  background-color: #02040a;
 }
 
 body {
-  background-color: #050505;
+  background-color: #02040a;
+  background-image: 
+    linear-gradient(to bottom, rgba(2, 4, 10, 0.75), rgba(2, 4, 10, 0.88)),
+    url('/bg_theme.jpg');
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   color: #ffffff;
   font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
   overflow-x: hidden;
-  selection-background-color: #0757C8;
-  selection-color: #ffffff;
 }
 
 ::selection {
-  background: #0757C8;
-  color: #ffffff;
+  background: #00D2FF;
+  color: #02040a;
 }
 
-/* Glassmorphic card surfaces */
+/* Glassmorphic Navbar */
 .glass-nav {
-  background: rgba(5, 5, 5, 0.75);
+  background: rgba(2, 4, 10, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(0, 210, 255, 0.18);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.8);
+}
+
+/* Cyber Glass Card Surfaces */
+.cyber-panel {
+  background: rgba(5, 10, 24, 0.75);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.glass-card {
-  background: rgba(26, 31, 43, 0.65);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border: 1px solid rgba(255, 255, 255, 0.07);
-}
-
-.glass-card-interactive {
-  background: rgba(26, 31, 43, 0.65);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border: 1px solid rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.1), 0 12px 35px -8px rgba(0, 0, 0, 0.6);
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.glass-card-interactive:hover {
-  background: rgba(26, 31, 43, 0.9);
-  border-color: rgba(7, 87, 200, 0.45);
-  transform: translateY(-3px);
-  box-shadow: 0 16px 36px -12px rgba(7, 87, 200, 0.25);
+.cyber-panel:hover {
+  border-color: rgba(0, 210, 255, 0.4);
+  box-shadow: 
+    inset 0 1px 1px rgba(255, 255, 255, 0.15),
+    0 16px 40px -10px rgba(0, 102, 255, 0.3),
+    0 0 25px -5px rgba(0, 210, 255, 0.2);
+  transform: translateY(-2px);
 }
 
-/* Button variants matching Brand Style Guide */
-.btn-primary {
-  background-color: #0757C8 !important;
-  background: linear-gradient(135deg, #0757C8 0%, #0d6efd 100%) !important;
-  color: #ffffff !important;
+/* Primary Laser Glow Button */
+.btn-laser {
+  background: linear-gradient(135deg, #0066FF 0%, #00D2FF 100%);
+  color: #ffffff;
   padding: 0.85rem 1.8rem;
-  border-radius: 0.875rem; /* rounded-xl from brand kit */
-  font-weight: 600;
+  border-radius: 0.75rem;
+  font-weight: 700;
   font-size: 0.9375rem;
   letter-spacing: -0.01em;
   transition: all 0.25s ease;
-  box-shadow: 0 4px 24px -2px rgba(7, 87, 200, 0.55);
+  box-shadow: 0 0 25px rgba(0, 210, 255, 0.45);
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   cursor: pointer;
 }
 
-.btn-primary:hover {
-  background: linear-gradient(135deg, #0963e6 0%, #1a78ff 100%) !important;
+.btn-laser:hover {
+  background: linear-gradient(135deg, #0d74ff 0%, #38e1ff 100%);
   transform: translateY(-2px);
-  box-shadow: 0 8px 32px -4px rgba(7, 87, 200, 0.8);
-  border-color: rgba(255, 255, 255, 0.35);
+  box-shadow: 0 0 35px rgba(0, 210, 255, 0.75);
 }
 
-.btn-secondary {
-  background: rgba(26, 31, 43, 0.8);
-  color: #ffffff;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  padding: 0.75rem 1.6rem;
-  border-radius: 9999px;
-  font-weight: 600;
+/* Secondary Ghost Button */
+.btn-ghost-cyber {
+  background: rgba(6, 18, 16, 0.8);
+  color: #25D366;
+  border: 1px solid rgba(37, 211, 102, 0.35);
+  padding: 0.85rem 1.8rem;
+  border-radius: 0.75rem;
+  font-weight: 700;
   font-size: 0.9375rem;
-  letter-spacing: -0.01em;
   transition: all 0.25s ease;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
+  cursor: pointer;
+  box-shadow: 0 0 20px rgba(37, 211, 102, 0.15);
 }
 
-.btn-secondary:hover {
-  background: rgba(35, 42, 58, 0.9);
-  border-color: rgba(7, 87, 200, 0.5);
+.btn-ghost-cyber:hover {
+  background: rgba(10, 32, 26, 0.95);
+  border-color: rgba(37, 211, 102, 0.7);
+  box-shadow: 0 0 30px rgba(37, 211, 102, 0.35);
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px -4px rgba(7, 87, 200, 0.25);
 }
 
-/* Text Gradients */
-.text-gradient-white {
-  background: linear-gradient(180deg, #FFFFFF 0%, #CBD5E1 100%);
+/* Text Gradients matching Laser Neon theme */
+.text-laser-gradient {
+  background: linear-gradient(135deg, #ffffff 0%, #a5f3fc 45%, #00D2FF 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-.text-gradient-cobalt {
-  background: linear-gradient(135deg, #38BDF8 0%, #0757C8 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+.text-cyan-glow {
+  color: #00D2FF;
+  text-shadow: 0 0 20px rgba(0, 210, 255, 0.5);
 }
 
-/* Background Gradients & Accents */
-.hero-glow {
-  background: radial-gradient(circle at 50% 0%, rgba(7, 87, 200, 0.22) 0%, rgba(5, 5, 5, 0) 70%);
+/* Laser Cutout Accent Lines */
+.laser-cutout-top {
+  position: relative;
+}
+.laser-cutout-top::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 10%;
+  right: 10%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #00D2FF, transparent);
+  box-shadow: 0 0 10px #00D2FF;
 }
 
-.blue-flare {
-  background: radial-gradient(circle, rgba(7, 87, 200, 0.25) 0%, rgba(7, 87, 200, 0) 70%);
-}
-
-/* Diagonal chevron pattern inspired by Automex brand kit banner */
-.automex-mesh-lines {
-  background-image: 
-    linear-gradient(135deg, rgba(7, 87, 200, 0.05) 1px, transparent 1px),
-    linear-gradient(45deg, rgba(7, 87, 200, 0.03) 1px, transparent 1px);
-  background-size: 60px 60px;
-}
-
-/* Pulse animation for status badges */
-@keyframes pulseGlow {
+/* Pulsing Badge Glow */
+@keyframes neonPulse {
   0%, 100% {
-    box-shadow: 0 0 0 0 rgba(7, 87, 200, 0.6);
+    box-shadow: 0 0 15px rgba(0, 210, 255, 0.35);
   }
   50% {
-    box-shadow: 0 0 0 8px rgba(7, 87, 200, 0);
+    box-shadow: 0 0 25px rgba(0, 210, 255, 0.65);
   }
 }
 
-.pulse-badge {
-  animation: pulseGlow 2.4s infinite;
+.neon-pulse {
+  animation: neonPulse 3s ease-in-out infinite;
 }

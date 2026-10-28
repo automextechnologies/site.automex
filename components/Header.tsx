@@ -22,16 +22,27 @@ export default function Header() {
     return pathname === "/" ? id : `/${id}`;
   };
 
+  const navLinks = [
+    { name: "Platform", href: getPath("#whatsapp") },
+    { name: "Capabilities", href: getPath("#capabilities") },
+    { name: "Channels", href: getPath("#channels") },
+    { name: "Solutions", href: getPath("#industries") },
+    { name: "Case Study", href: getPath("#case-study") },
+    { name: "Integrations", href: getPath("#integrations") },
+    { name: "Plans", href: getPath("#plans") },
+    { name: "FAQ", href: getPath("#faq") },
+  ];
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "glass-nav py-3.5 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.8)]"
+          ? "glass-nav py-3.5"
           : "bg-transparent py-5"
       }`}
     >
       <div className="container mx-auto flex items-center justify-between px-4 sm:px-6 lg:px-12">
-        {/* Brand Logo following clear space guidelines */}
+        {/* Brand Logo */}
         <Link href="/" className="flex items-center gap-2 group focus:outline-none">
           <Image
             src="/automexlogowhite.png"
@@ -43,35 +54,26 @@ export default function Header() {
           />
         </Link>
 
-        {/* Desktop Navigation Links */}
-        <nav className="hidden items-center gap-8 lg:flex">
-          <Link
-            href="/"
-            className="text-sm font-semibold text-white/90 hover:text-[#0757C8] transition-colors duration-200"
-          >
-            Home
-          </Link>
-          <Link
-            href={getPath("#whatsapp")}
-            className="text-sm font-semibold text-white/90 hover:text-[#0757C8] transition-colors duration-200"
-          >
-            WhatsApp API
-          </Link>
-          <Link
-            href={getPath("#rcs")}
-            className="text-sm font-semibold text-white/90 hover:text-[#0757C8] transition-colors duration-200"
-          >
-            RCS Messaging
-          </Link>
+        {/* Desktop Navigation Links (Telinfy style) */}
+        <nav className="hidden items-center gap-7 lg:flex">
+          {navLinks.map((link) => (
+            <Link
+              key={link.name}
+              href={link.href}
+              className="text-xs xl:text-sm font-semibold text-white/80 hover:text-[#00D2FF] transition-colors duration-200"
+            >
+              {link.name}
+            </Link>
+          ))}
         </nav>
 
         {/* CTA Button & Mobile Hamburger Trigger */}
         <div className="flex items-center gap-3">
           <Link
             href={getPath("#contact")}
-            className="btn-primary bg-[#0757C8] hover:bg-[#0c6bf0] text-white font-semibold hidden sm:inline-flex items-center gap-2 text-xs sm:text-sm !py-2.5 !px-5 rounded-xl shadow-[0_4px_20px_rgba(7,87,200,0.45)] transition-all group"
+            className="btn-laser !py-2.5 !px-5 rounded-full text-xs sm:text-sm group"
           >
-            <span>Contact Us</span>
+            <span>Book a Meeting</span>
             <svg
               className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-1"
               fill="none"
@@ -85,7 +87,7 @@ export default function Header() {
           {/* Mobile hamburger button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden p-2.5 rounded-xl border border-white/10 bg-[#1A1F2B] text-white hover:border-[#0757C8]/60 transition-colors focus:outline-none active:scale-95"
+            className="lg:hidden p-2 rounded-xl border border-white/10 bg-[#050914] text-white hover:border-[#00D2FF]/60 transition-colors focus:outline-none active:scale-95"
             aria-label="Toggle mobile menu"
           >
             {mobileMenuOpen ? (
@@ -103,42 +105,26 @@ export default function Header() {
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-[#050505]/98 backdrop-blur-2xl border-b border-white/10 px-6 py-6 shadow-2xl animate-in fade-in slide-in-from-top-2 duration-200">
-          <nav className="flex flex-col gap-3">
+        <div className="lg:hidden glass-nav border-t border-white/10 px-6 py-6 space-y-4 shadow-2xl animate-fadeIn">
+          {navLinks.map((link) => (
             <Link
-              href="/"
+              key={link.name}
+              href={link.href}
               onClick={() => setMobileMenuOpen(false)}
-              className="text-base font-semibold text-white hover:text-[#0757C8] py-2 border-b border-white/5 transition-colors"
+              className="block text-sm font-semibold text-white/90 hover:text-[#00D2FF] py-2 transition-colors border-b border-white/5"
             >
-              Home
+              {link.name}
             </Link>
+          ))}
+          <div className="pt-2">
             <Link
-              href={getPath("#whatsapp")}
+              href={getPath("#contact")}
               onClick={() => setMobileMenuOpen(false)}
-              className="text-base font-semibold text-white hover:text-[#0757C8] py-2 border-b border-white/5 transition-colors"
+              className="btn-laser w-full text-center py-3 text-sm rounded-xl"
             >
-              WhatsApp API
+              <span>Book a Meeting</span>
             </Link>
-            <Link
-              href={getPath("#rcs")}
-              onClick={() => setMobileMenuOpen(false)}
-              className="text-base font-semibold text-white hover:text-[#0757C8] py-2 border-b border-white/5 transition-colors"
-            >
-              RCS Messaging
-            </Link>
-            <div className="pt-2">
-              <Link
-                href={getPath("#contact")}
-                onClick={() => setMobileMenuOpen(false)}
-                className="btn-primary bg-[#0757C8] hover:bg-[#0c6bf0] text-white font-semibold w-full text-center py-3.5 rounded-xl shadow-[0_4px_25px_rgba(7,87,200,0.5)] flex items-center justify-center gap-2 group"
-              >
-                <span>Contact Us</span>
-                <svg className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                </svg>
-              </Link>
-            </div>
-          </nav>
+          </div>
         </div>
       )}
     </header>
